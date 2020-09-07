@@ -1,24 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
 function App() {
+
+  const onSubmit = () => {
+    var e = new FormData()
+
+    const file = document.getElementById('file')
+    e.append("file", file.files[0])
+
+    console.log(file.files[0])
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <form>
+        <input onChange={onSubmit} type="file" name="file" id="file"/>
+        <button type="submit">salvar</button>
+      </form>
     </div>
   );
 }
